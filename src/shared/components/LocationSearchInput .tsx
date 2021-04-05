@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
     getLatLng,
 } from 'react-places-autocomplete';
 import API from '../../api/GetWeather';
+import configData from "../../config.json";
 
 export class LocationSearchInput extends React.Component<any, any> {
     constructor(props: any) {
@@ -29,7 +30,7 @@ export class LocationSearchInput extends React.Component<any, any> {
     };
 
     callService = (address: any, data: any) => {
-        API.get(`/data/2.5/onecall?appid=&lat=${data.lat}&lon=${data.lng}&exclude=hourly,daily&units=metric`)
+        API.get(`/data/2.5/onecall?appid=${configData.OPENWEATHER_ID}&lat=${data.lat}&lon=${data.lng}&exclude=hourly,daily&units=metric`)
             .then(res => {
                 console.log(res.data);
                 this.setState({weatherData: res.data});
