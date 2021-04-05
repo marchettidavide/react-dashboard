@@ -5,11 +5,17 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import API from '../../api/GetWeather';
 import configData from "../../config.json";
+//import { ResponseObject } from '../model/open-weather';
+
+// interface WeatherData {
+//     address:any,
+//     item: ResponseObject;
+// }
 
 export class LocationSearchInput extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
-        this.state = {address: '', weatherData: []};
+        this.state = {address: '', weatherData: ''};
     }
 
     handleChange = (address: any) => {
@@ -39,24 +45,6 @@ export class LocationSearchInput extends React.Component<any, any> {
                 console.log(err);
 
             })
-        // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lng}&exclude=hourly,daily&units=metric&appid=25ffec7b9a2e38e598a909dd0d146f3e`)
-        //     .then(res => res.json())
-        //     .then(
-        //         (result) => {
-        //             this.setState({
-        //                 isLoaded: true,
-        //                 items: result
-        //             });
-        //             console.log('result->', result)
-        //             console.log('resultItems->', result.items)
-        //         },
-        //         (error) => {
-        //             this.setState({
-        //                 isLoaded: true,
-        //                 error
-        //             });
-        //         }
-        //     )
     }
 
     render() {
