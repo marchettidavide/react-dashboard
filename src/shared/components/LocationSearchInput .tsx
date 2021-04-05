@@ -29,7 +29,7 @@ export class LocationSearchInput extends React.Component<any, any> {
     };
 
     callService = (address: any, data: any) => {
-        API.get(`/data/2.5/onecall?appid=25ffec7b9a2e38e598a909dd0d146f3e&lat=${data.lat}&lon=${data.lng}&exclude=hourly,daily&units=metric`)
+        API.get(`/data/2.5/onecall?appid=&lat=${data.lat}&lon=${data.lng}&exclude=hourly,daily&units=metric`)
             .then(res => {
                 console.log(res.data);
                 this.setState({weatherData: res.data});
